@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+---
 
-## Getting Started
+# Araç Kiralama Sitesi  
 
-First, run the development server:
+Bu proje, **Next.js** ile geliştirilmiş, araç kiralama hizmeti sunan bir web uygulamasıdır. Backend, **Next.js API** ile oluşturulmuş olup, veri tabanı olarak **MongoDB** kullanılmaktadır. Frontend tasarımı **Tailwind CSS** ile yapılmıştır. Ödeme süreçleri için **Stripe** test modu entegre edilmiştir.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Özellikler  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Araç Listeleme ve Detaylar:** Araçların listelenmesi, detaylarının görüntülenmesi.  
+- **Filtreleme ve Arama:** Kullanıcıların araçları marka, model veya fiyat aralığı gibi kriterlere göre filtreleyebilmesi.  
+- **Rezervasyon ve Ödeme:** Stripe ile test modunda ödeme yaparak araç rezervasyonu.  
+- **Kullanıcı Dostu Arayüz:** Mobil ve masaüstü cihazlara uyumlu, modern tasarım.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Kullanılan Teknolojiler  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend:**  
+  - [Next.js](https://nextjs.org/)  
+  - [Tailwind CSS](https://tailwindcss.com/)  
+- **Backend:**  
+  - Next.js API Routes  
+  - [MongoDB](https://www.mongodb.com/)  
+- **Ödeme Sistemi:**  
+  - [Stripe](https://stripe.com/) (Test modu)  
 
-## Learn More
+## Kurulum  
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Depoyu Klonla  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Proje dosyalarını yerel ortamınıza klonlayın:  
+```bash  
+git clone https://github.com/cengo14/nextjs-car-rental-project
+cd nextjs-car-rental-project  
+```  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Çevre Değişkenlerini Ayarla  
 
-## Deploy on Vercel
+Proje kök dizininde bir `.env.local` dosyası oluşturun ve aşağıdaki değişkenleri doldurun:  
+```env  
+MONGO_URL=<mongodb-bağlantı-url>  
+STRIPE_KEY=<stripe-gizli-anahtar>  
+WEBHOOK_KEY=<webhook key>
+BASE_API_URL=http://localhost:3000 
+```  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Bağımlılıkları Yükle  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Bağımlılıkları kurmak için aşağıdaki komutu çalıştırın:  
+```bash  
+npm install  
+# veya  
+yarn install  
+```  
+
+### 4. Geliştirme Sunucusunu Başlat  
+
+Projenin geliştirme modunda çalıştırılması için:  
+```bash  
+npm run dev  
+# veya  
+yarn dev  
+```  
+
+Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresine giderek uygulamayı görüntüleyebilirsiniz.  
+
+## Ekran Görüntüleri  
+
+![uygulama görüntüsü](./screenshots/ss.gif)
+
+
+## Geliştirme Notları  
+
+- **MongoDB:** Projede veri tabanı olarak MongoDB kullanılmaktadır. Bağlantı URL'si `.env.local` dosyasında belirtilmelidir.  
+- **Stripe:** Stripe test anahtarları kullanılarak ödeme süreçleri simüle edilmiştir. Gerçek ödeme entegrasyonu için canlı anahtarlar kullanılmalıdır.  
+
+## Katkı  
+
+Katkıda bulunmak isterseniz:  
+1. Bu repoyu fork edin.  
+2. Yeni bir dal oluşturun (`git checkout -b feature/yenilik`).  
+3. Değişikliklerinizi commit edin (`git commit -m 'Yeni özellik eklendi'`).  
+4. Dalı gönderin (`git push origin feature/yenilik`).  
+5. Bir **Pull Request** açın.  
+
+## Lisans  
+
+Bu proje MIT lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasını inceleyebilirsiniz.  
+
+---
